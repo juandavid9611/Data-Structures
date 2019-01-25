@@ -1,0 +1,20 @@
+Ireland
+Kenya
+Nigeria
+Macao
+Colombia
+Bangladesh
+Panama
+Dominican Republic
+Haiti
+Andorra
+Moldova
+Ireland,Kenya,2000
+Kenya,Nigeria,3000
+Nigeria,Colombia,4000
+Colombia,Panama,5000
+Colombia,Kenya,1000
+Macao,Haiti,500
+Andorra,Moldova,200
+Nigeria,Andorra,10000
+Ireland,Moldova,100
