@@ -26,9 +26,9 @@ public class Test {
         System.out.println("Hello, World!");
         countries = new ArrayList<>();
 
-        File file = new File("C:\\Users\\jarodriguez\\Data structures\\src\\Challenge\\in.txt");
+        File file = new File("src\\Challenge\\in.txt");
 
-        BufferedReader br = new BufferedReader(new FileReader(file));
+       BufferedReader br = new BufferedReader(new FileReader(file));
 
         String st;
         Boolean already = false;
@@ -68,8 +68,5 @@ public class Test {
             }
             System.out.println();
         }
-
-
-
     }
 }
