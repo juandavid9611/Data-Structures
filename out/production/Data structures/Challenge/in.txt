@@ -14,7 +14,9 @@ Kenya,Nigeria,3000
 Nigeria,Colombia,4000
 Colombia,Panama,5000
 Colombia,Kenya,1000
+Colombia,Ireland,10000
 Macao,Haiti,500
 Andorra,Moldova,200
+Moldova,Macao,10000
 Nigeria,Andorra,10000
 Ireland,Moldova,100

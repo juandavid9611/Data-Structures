@@ -31,8 +31,6 @@ public class CompressTest {
         System.out.println("Writing successful");
         //close the file
         fw.close();
-
-
     }
 
 
