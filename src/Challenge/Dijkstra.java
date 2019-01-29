@@ -67,31 +67,34 @@ public class Dijkstra {
 
             // Mark the picked vertex as
             // processed
-            added[nearestVertex] = true;
+            if (nearestVertex >= 0){
+                added[nearestVertex] = true;
 
-            // Update dist value of the
-            // adjacent vertices of the
-            // picked vertex.
-            int vertexIndex;
-            for ( vertexIndex = 0;
-                 vertexIndex < nVertices;
-                 vertexIndex++) {
-                int edgeDistance = adjacencyMatrix[nearestVertex][vertexIndex];
+                // Update dist value of the
+                // adjacent vertices of the
+                // picked vertex.
+                int vertexIndex;
+                for ( vertexIndex = 0;
+                      vertexIndex < nVertices;
+                      vertexIndex++) {
+                    int edgeDistance = adjacencyMatrix[nearestVertex][vertexIndex];
 
-                if (edgeDistance > 0
-                        && ((shortestDistance + edgeDistance) <
-                        shortestDistances[vertexIndex])) {
-                    parents[vertexIndex] = nearestVertex;
-                    shortestDistances[vertexIndex] = shortestDistance +
-                            edgeDistance;
-                }
+                    if (edgeDistance > 0
+                            && ((shortestDistance + edgeDistance) <
+                            shortestDistances[vertexIndex])) {
+                        parents[vertexIndex] = nearestVertex;
+                        shortestDistances[vertexIndex] = shortestDistance +
+                                edgeDistance;
+                    }
                 /*if (shortestDistances[vertexIndex] == Integer.MAX_VALUE){
                     System.out.println("No hay camino");
                 }*/
+                }
+                if (i == finalvertex){
+                    i = nVertices;
+                }
             }
-            if (i == finalvertex){
-                i = nVertices;
-            }
+
         }
 
         printSolution(startVertex, shortestDistances, parents, paises, finalvertex);
@@ -106,17 +109,22 @@ public class Dijkstra {
                                       List<String> paises,
                                       int finalVertex) {
         int nVertices = distances.length;
-        System.out.print("Vertex\t Distance\tPath");
+
 
         if (finalVertex == startVertex){
             for (int vertexIndex = 0;
                  vertexIndex < nVertices;
                  vertexIndex++) {
                 if (vertexIndex != startVertex) {
-                    System.out.print("\n" + paises.get(startVertex) + " -> ");
-                    System.out.print(paises.get(vertexIndex) + " \t\t ");
-                    System.out.print(distances[vertexIndex] + "\t\t");
-                    printPath(vertexIndex, parents, paises);
+
+                    if (distances[vertexIndex] != 2147483647){
+                        System.out.print("\nVertex\t Distance\tPath");
+                        System.out.print("\n" + paises.get(startVertex) + " -> ");
+                        System.out.print(paises.get(vertexIndex) + " \t\t ");
+                        System.out.print(distances[vertexIndex] + "\t\t");
+                        printPath(vertexIndex, parents, paises);
+                    }
+
                 }
             }
         }else{
@@ -124,10 +132,13 @@ public class Dijkstra {
                  vertexIndex < nVertices;
                  vertexIndex++) {
                 if (vertexIndex != startVertex && finalVertex==vertexIndex) {
-                    System.out.print("\n" + paises.get(startVertex) + " -> ");
-                    System.out.print(paises.get(vertexIndex) + " \t\t ");
-                    System.out.print(distances[vertexIndex] + "\t\t");
-                    printPath(vertexIndex, parents, paises);
+                    if (distances[vertexIndex] != 2147483647){
+                        System.out.print("\n" + paises.get(startVertex) + " -> ");
+                        System.out.print(paises.get(vertexIndex) + " \t\t ");
+                        System.out.print(distances[vertexIndex] + "\t\t");
+                        printPath(vertexIndex, parents, paises);
+                    }
+
                 }
             }
         }
@@ -144,10 +155,14 @@ public class Dijkstra {
 
         // Base case : Source node has
         // been processed
+        //System.out.println(currentVertex + "------\n");
         if (currentVertex == NO_PARENT) {
+
             return;
         }
         printPath(parents[currentVertex], parents,paises);
         System.out.print(paises.get(currentVertex) + " ");
+
+
     }
 }
