@@ -82,6 +82,7 @@ public class Test {
 
     public static void main(String[] args) throws IOException {
         // Menu para utilizar el programa
+        CompressTest.decompress();
         while (true){
             System.out.println("\n1. Todos los caminos desde de un pais\n2. Menor camino posble entre dos paises\n3. Cargar Archivo");
             Scanner keyboard = new Scanner(System.in);
@@ -125,6 +126,8 @@ public class Test {
                     if (option == 3){
                         //Cargar archivo
                         readFile();
+                        CompressTest.matrizToFile(MatAdj,paises);
+                        CompressTest.compress();
                     }else{
                         System.out.println("Opcion invalida");
                     }
