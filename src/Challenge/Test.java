@@ -74,11 +74,8 @@ public class Test {
         int  AdjMat [][] = new int[0][];
         //System.out.println("Hello, World!");
         countries = new ArrayList<>();
-
         File file = new File("src\\Challenge\\"+namefile);
-
         BufferedReader br = new BufferedReader(new FileReader(file));
-
         String st;
         Boolean already = false;
         int vertices = 0;
@@ -105,9 +102,7 @@ public class Test {
             else{
                 countries.add(st);
             }
-
         }
-
         /*for (int i = 0; i < countries.size(); i++) {
             System.out.println(countries.get(i));
         }
@@ -124,7 +119,6 @@ public class Test {
         //System.out.println("Vertices" + countries.size());
         //dijkstra(AdjMat,sourceVertex,sourceVertex);
     }
-
     public static void main(String[] args) throws IOException {
         // Menu para utilizar el programa
         try{
@@ -133,7 +127,6 @@ public class Test {
         }catch (Exception e){
 
         }
-
         while (true){
             System.out.println("\n1. Todos los caminos desde de un pais\n2. Menor camino posble entre dos paises\n3. Cargar Archivo");
             Scanner keyboard = new Scanner(System.in);
@@ -142,7 +135,6 @@ public class Test {
                 System.out.println("Digite el nombre del punto de partida");
                 Scanner keyboard2 = new Scanner(System.in);
                 String pais = keyboard2.next();
-
                 //System.out.println(paises.toString());
                 //if (paises.contains(pais)){
                  //   dijkstra(MatAdj,paises.indexOf(pais),paises.indexOf(pais), paises);
@@ -150,10 +142,8 @@ public class Test {
                 for (String st: paises){
                     if (!st.equals(pais)){
                         //System.out.println("\n"+pais + "->" + paises.indexOf(pais)+"\n"+st+"->"+paises.indexOf(st));
-
                         dijkstra(MatAdj,paises.indexOf(pais),paises.indexOf(st), paises);
                     }
-
                 }
             }else{
                 if(option == 2){
@@ -168,8 +158,6 @@ public class Test {
                     }else{
                         System.out.println("No existe uno de los paises");
                     }
-
-
                 }else {
                     if (option == 3){
                         //Cargar archivo
@@ -182,12 +170,8 @@ public class Test {
                     }else{
                         System.out.println("Opcion invalida");
                     }
-
                 }
             }
-
         }
-
-
     }
 }
